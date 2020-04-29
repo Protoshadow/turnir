@@ -38,7 +38,7 @@ if(isset($_POST["login"]))
    {
     if($password == $row["password"])
     {
-     setcookie("type", $row["user_type"], time()+3600);
+     setcookie("type", $row["username"], time()+3600);
      header("location:index.php");
     }
     else

@@ -10,7 +10,7 @@ if(isset($_COOKIE["type"]))
 
 $message = '';
 
-if(isset($_POST["login"]))
+if(isset($_POST["register"]))
 {
  $username = strip_tags($_POST['username']);
  $email = strip_tags($_POST['email']);
@@ -51,7 +51,7 @@ if(isset($_POST["login"]))
    <br />
    <div class="panel panel-default">
 
-    <div class="panel-heading">Login</div>
+    <div class="panel-heading">register</div>
     <div class="panel-body">
      <span><?php echo $message; ?></span>
      <form method="post">
@@ -76,7 +76,7 @@ if(isset($_POST["login"]))
        <input type="text" name="lname" id="lname" class="form-control" />
       </div>
       <div class="form-group">
-       <input type="submit" name="login" id="login" class="btn btn-info" value="Login" />
+       <input type="submit" name="register" id="register" class="btn btn-info" value="register" />
       </div>
      </form>
     </div>

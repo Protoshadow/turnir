@@ -2,10 +2,11 @@
 //login.php
 
 include("database_connection.php");
-header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: http://localhost:4200");
+header("Access-Control-Allow-Credentials: true");
 if(isset($_COOKIE["type"]))
 {
- //cookie provera
+ header("Location: index.php"); 
 }
 
 $message = '';
@@ -39,6 +40,7 @@ if(isset($_POST["login"]))
     if($password == $row["password"])
     {
      setcookie("type", $row["username"], time()+3600);
+	 header("Location: index.php"); 
     }
     else
     {
@@ -55,43 +57,3 @@ if(isset($_POST["login"]))
 
 
 ?>
-
-<!DOCTYPE html>
-<html>
- <head>
-  <title>Turnir</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- </head>
- <body>
-  <br />
-  <div class="container">
-   <h2 align="center">Turnir</h2>
-   <br />
-   <div class="panel panel-default">
-
-    <div class="panel-heading">Login</div>
-    <div class="panel-body">
-     <span><?php echo $message; ?></span>
-     <form method="post">
-      <div class="form-group">
-       <label>User Email</label>
-       <input type="text" name="email" id="email" class="form-control" />
-      </div>
-      <div class="form-group">
-       <label>Password</label>
-       <input type="password" name="password" id="password" class="form-control" />
-      </div>
-      <div class="form-group">
-       <input type="submit" name="login" id="login" class="btn btn-info" value="Login" />
-      </div>
-     </form>
-    </div>
-   </div>
-   <br />
-   <p>email - john_smith@gmail.com</p>
-   <p>Password - password</p>
-  </div>
- </body>
-</html>

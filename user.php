@@ -1,6 +1,6 @@
 <?php
-//index.php
-
+//user.php
+header("Access-Control-Allow-Origin: *");
 include("database_connection.php");
 if(isset($_COOKIE["type"]))
 {

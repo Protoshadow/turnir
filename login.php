@@ -16,10 +16,12 @@ if(isset($_POST["login"]))
 		$password = md5($password);
  if(empty($_POST["email"]) || empty($_POST["password"]))
  {
-  $message = "<div class='alert alert-danger'>Both Fields are required</div>";
+  http_response_code(401); // nisu oba polja uneta
+  echo "Morate uneti podatke u oba polja.";
  }
  else
  {
+	http_response_code(200); //uspesno
   $query = "
   SELECT * FROM korisnici 
   WHERE email = :email
@@ -43,13 +45,15 @@ if(isset($_POST["login"]))
     }
     else
     {
-     $message = '<div class="alert alert-danger">Wrong Password</div>';
+     http_response_code(401); //losa sifra
+	 echo "Sifra nije tacno uneta.";
     }
    }
   }
   else
   {
-   $message = "<div class='alert alert-danger'>Wrong Email Address</div>";
+   http_response_code(401); //los email
+   echo "Email nije tacno unet.";
   }
  }
 }

@@ -2,7 +2,8 @@
 //login.php
 
 include("database_connection.php");
-header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: http://localhost:4200");
+header("Access-Control-Allow-Credentials: true");
 if(isset($_COOKIE["type"]))
 {
 		//cookie provera

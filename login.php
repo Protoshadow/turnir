@@ -5,7 +5,7 @@ include("database_connection.php");
 header("Access-Control-Allow-Origin: *");
 if(isset($_COOKIE["type"]))
 {
- header("location:index.php");
+ //cookie provera
 }
 
 $message = '';
@@ -39,7 +39,6 @@ if(isset($_POST["login"]))
     if($password == $row["password"])
     {
      setcookie("type", $row["username"], time()+3600);
-     header("location:index.php");
     }
     else
     {

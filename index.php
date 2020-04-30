@@ -3,7 +3,7 @@
 
 if(!isset($_COOKIE["type"]))
 {
- header("location:login.php");
+	//cookie provera
 }
 
 ?>

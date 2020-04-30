@@ -5,7 +5,7 @@ include("database_connection.php");
 header("Access-Control-Allow-Origin: *");
 if(isset($_COOKIE["type"]))
 {
- header("location:index.php");
+ //cookie provera
 }
 
 $message = '';

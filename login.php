@@ -2,11 +2,10 @@
 //login.php
 
 include("database_connection.php");
-header("Access-Control-Allow-Origin: http://localhost:4200");
-header("Access-Control-Allow-Credentials: true");
+header("Access-Control-Allow-Origin: *");
 if(isset($_COOKIE["type"]))
 {
- header("Location: index.php"); 
+		//cookie provera
 }
 
 $message = '';
@@ -40,7 +39,7 @@ if(isset($_POST["login"]))
     if($password == $row["password"])
     {
      setcookie("type", $row["username"], time()+3600);
-	 header("Location: index.php"); 
+	//cookie
     }
     else
     {

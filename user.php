@@ -14,6 +14,6 @@ while ($row = mysqli_fetch_assoc($result))
 print(json_encode($json_array[0]));
 }
 else{
-	
+	http_response_code(401);
 }
 ?>

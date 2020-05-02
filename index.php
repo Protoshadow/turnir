@@ -24,6 +24,9 @@ if(isset($_POST["makegroup"]))
   ";
 	$statement = $connect->prepare($query);
 	$statement->execute();
+	$query2 = "UPDATE korisnici SET rank = 'manager' WHERE username = '".$_COOKIE["type"]."'";
+	$statement = $connect->prepare($query2);
+	$statement->execute();
   }
 }
 if(isset($_POST["delgroup"]))
@@ -39,6 +42,9 @@ if(isset($_POST["delgroup"]))
   DELETE FROM `grupe` WHERE menager ='".$_COOKIE["type"]."'
   ";
 	$statement = $connect->prepare($query);
+	$statement->execute();
+	$query2 = "UPDATE korisnici SET rank = 'user' WHERE username = '".$_COOKIE["type"]."'";
+	$statement = $connect->prepare($query2);
 	$statement->execute();
   }
   else{

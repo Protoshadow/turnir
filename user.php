@@ -5,7 +5,7 @@ header("Access-Control-Allow-Credentials: true");
 include("database_connection.php");
 if(isset($_COOKIE["type"]))
 {
-$result = mysqli_query($db, "SELECT username, email, rank, fname, lname FROM korisnici WHERE username = '".$_COOKIE["type"]."'");
+$result = mysqli_query($db, "SELECT username, email, rank, id, groupid, fname, lname FROM korisnici WHERE username = '".$_COOKIE["type"]."'");
 $json_array = array();
 while ($row = mysqli_fetch_assoc($result))
 {

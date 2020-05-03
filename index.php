@@ -14,7 +14,7 @@ if(isset($_POST["makegroup"]))
 	$count = $statement->rowCount();
   if($count > 0)
   {
-	  http_response_code(401);
+	  http_response_code(400);
 	  echo "Vec ste menager jedne grupe";
   }
   else{
@@ -38,7 +38,6 @@ if(isset($_POST["makegroup"]))
    $result = $statement->fetchAll();
    foreach($result as $row)
    {
-	   $idovog =$row["id"];
 	$query = "UPDATE korisnici SET groupid = '".$row["id"]."' WHERE username = '".$_COOKIE["type"]."'";
 	$statement = $connect->prepare($query);
 	$statement->execute();
@@ -63,7 +62,7 @@ if(isset($_POST["delgroup"]))
 	$statement->execute();
   }
   else{
-	http_response_code(401);
+	http_response_code(400);
 	echo "Niste menager ni jedne grupe";
   }
 }
@@ -129,7 +128,7 @@ if(isset($_POST["leavegroup"]))
   }
   }
   else{
-	  http_response_code(401);
+	  http_response_code(404);
 	  echo "niste clan ni jedne grupe";
   }
 }
@@ -189,22 +188,24 @@ if(isset($_POST["joingroup"]))
 	$statement->execute();
     }
 	else{
-	http_response_code(401);
+	http_response_code(400);
 	echo "grupa je puna";
 	}
 	}
 	else{
+		http_response_code(400);
 		echo "vec ste clan ove grupe";
 	}
   }
   }
   else{
-	  http_response_code(401);
+	  http_response_code(404);
 	  echo "Ne postoji taj invite code";
   }
 }
 }
 else{
+	http_response_code(401);
 	echo "niste ulogovani";
 }
 ?>

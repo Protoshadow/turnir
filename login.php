@@ -17,7 +17,7 @@ if(isset($_POST["login"]))
 		$password = md5($password);
  if(empty($_POST["email"]) || empty($_POST["password"]))
  {
-  http_response_code(401); // nisu oba polja uneta
+  http_response_code(400); // nisu oba polja uneta
   echo "Morate uneti podatke u oba polja.";
  }
  else
@@ -42,18 +42,17 @@ if(isset($_POST["login"]))
     if($password == $row["password"])
     {
      setcookie("type", $row["username"], time()+86400);
-	header("Location: index.php");
     }
     else
     {
-     http_response_code(401); //losa sifra
+     http_response_code(400); //losa sifra
 	 echo "Sifra nije tacno uneta.";
     }
    }
   }
   else
   {
-   http_response_code(401); //los email
+   http_response_code(400); //los email
    echo "Email nije tacno unet.";
   }
  }

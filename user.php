@@ -2,10 +2,10 @@
 header("Access-Control-Allow-Origin: http://localhost:4200");
 header("Access-Control-Allow-Credentials: true");
 include("database_connection.php");
-if ( isset( $_GET['user_id']) ) 
+if ( isset( $_GET['user_username']) ) 
 {
-$id = $_GET['user_id'];
-$result = mysqli_query($db, "SELECT username, email, rank, id, groupid, fname, lname FROM korisnici WHERE id = $id");
+$username = $_GET['user_username'];
+$result = mysqli_query($db, "SELECT username, email, rank, id, groupid, fname, lname FROM korisnici WHERE username = '$username'");
 $json_array = array();
 while ($row = mysqli_fetch_assoc($result))
 {

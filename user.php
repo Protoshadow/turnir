@@ -15,8 +15,7 @@ print(json_encode($json_array[0]));
 mysqli_close($db);
 }
 
-else{
-	if(isset($_COOKIE["type"]))
+elseif(isset($_COOKIE["type"]))
 {
 	$result = mysqli_query($db, "SELECT username, email, rank, id, groupid, fname, lname FROM korisnici WHERE username = '".$_COOKIE["type"]."'");
 	$json_array = array();
@@ -26,9 +25,8 @@ else{
 }
 	print(json_encode($json_array[0]));
 }
-	else{
-		http_response_code(401);
-		echo "niste ulogovani";
-}
+else{
+	http_response_code(401);
+	echo "niste ulogovani";
 }
 ?>

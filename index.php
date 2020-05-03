@@ -20,13 +20,30 @@ if(isset($_POST["makegroup"]))
   else{
 	http_response_code(200);
 	$query = "
-  INSERT INTO grupe(menager, groupname) VALUES('".$_COOKIE["type"]."', '".$_POST["groupname"]."')
+  INSERT INTO grupe(menager, groupname) VALUES('".$_COOKIE["type"]."', '".$_POST["groupname"]."');
+  UPDATE korisnici SET rank = 'manager' WHERE username = '".$_COOKIE["type"]."'
   ";
 	$statement = $connect->prepare($query);
 	$statement->execute();
-	$query2 = "UPDATE korisnici SET rank = 'manager' WHERE username = '".$_COOKIE["type"]."'";
-	$statement = $connect->prepare($query2);
+	
+	//dodavanje id
+	$query = "
+  SELECT * FROM grupe WHERE menager= '".$_COOKIE["type"]."'
+  ";
+  $statement = $connect->prepare($query);
+  $statement->execute();
+  $count = $statement->rowCount();
+  if($count > 0)
+  {
+   $result = $statement->fetchAll();
+   foreach($result as $row)
+   {
+	   $idovog =$row["id"];
+	$query = "UPDATE korisnici SET groupid = '".$row["id"]."' WHERE username = '".$_COOKIE["type"]."'";
+	$statement = $connect->prepare($query);
 	$statement->execute();
+   }
+  }
   }
 }
 if(isset($_POST["delgroup"]))
@@ -39,12 +56,10 @@ if(isset($_POST["delgroup"]))
   {
 	http_response_code(200);
 	$query = "
-  DELETE FROM `grupe` WHERE menager ='".$_COOKIE["type"]."'
+  DELETE FROM `grupe` WHERE menager ='".$_COOKIE["type"]."';
+  UPDATE korisnici SET rank = 'user', groupid = '0' WHERE username = '".$_COOKIE["type"]."'
   ";
 	$statement = $connect->prepare($query);
-	$statement->execute();
-	$query2 = "UPDATE korisnici SET rank = 'user' WHERE username = '".$_COOKIE["type"]."'";
-	$statement = $connect->prepare($query2);
 	$statement->execute();
   }
   else{
@@ -74,28 +89,40 @@ if(isset($_POST["leavegroup"]))
     if($membername == $row["member1"])
     {
 	http_response_code(200);
-	$query = "UPDATE grupe SET member1 = ''";
+	$query = "
+	UPDATE grupe SET member1 = '' WHERE member1= '".$_COOKIE["type"]."';
+	UPDATE korisnici SET groupid = '0' WHERE username= '".$_COOKIE["type"]."'
+	";
 	$statement = $connect->prepare($query);
 	$statement->execute();
     }
     elseif ($membername == $row["member2"])
     {
 	http_response_code(200);
-	$query = "UPDATE grupe SET member2 = ''";
+	$query = "
+	UPDATE grupe SET member2 = '' WHERE member2= '".$_COOKIE["type"]."';
+	UPDATE korisnici SET groupid = '0' WHERE username= '".$_COOKIE["type"]."'
+	";
 	$statement = $connect->prepare($query);
 	$statement->execute();
     }
     elseif ($membername == $row["member3"])
     {
 	http_response_code(200);
-	$query = "UPDATE grupe SET member3 = ''";
+	$query = "
+	UPDATE grupe SET member3 = '' WHERE member3= '".$_COOKIE["type"]."';
+	UPDATE korisnici SET groupid = '0' WHERE username= '".$_COOKIE["type"]."'
+	";
 	$statement = $connect->prepare($query);
 	$statement->execute();
     }
     elseif ($membername == $row["member4"])
     {
 	http_response_code(200);
-	$query = "UPDATE grupe SET member4 = ''";
+	$query = "
+	UPDATE grupe SET member4 = '' WHERE member4= '".$_COOKIE["type"]."';
+	UPDATE korisnici SET groupid = '0' WHERE username= '".$_COOKIE["type"]."'
+	";
 	$statement = $connect->prepare($query);
 	$statement->execute();
     }
@@ -119,37 +146,55 @@ if(isset($_POST["joingroup"]))
    $result = $statement->fetchAll();
    foreach($result as $row)
    {
+	if($_COOKIE["type"] !== $row["member1"] && $_COOKIE["type"] !== $row["member2"] && $_COOKIE["type"] !== $row["member3"] && $_COOKIE["type"] !== $row["member4"])
+	{
     if($empty == $row["member1"])
     {
 	http_response_code(200);
-	$query = "UPDATE grupe SET member1 = '".$_COOKIE["type"]."' WHERE id= '".$_POST["joincode"]."'";
+	$query = "
+	UPDATE grupe SET member1 = '".$_COOKIE["type"]."' WHERE id= '".$_POST["joincode"]."';
+	UPDATE korisnici SET groupid = '".$row["id"]."' WHERE username= '".$_COOKIE["type"]."'
+	";
 	$statement = $connect->prepare($query);
 	$statement->execute();
     }
     elseif ($empty == $row["member2"])
     {
 	http_response_code(200);
-	$query = "UPDATE grupe SET member2 = '".$_COOKIE["type"]."' WHERE id= '".$_POST["joincode"]."'";
+	$query = "
+	UPDATE grupe SET member2 = '".$_COOKIE["type"]."' WHERE id= '".$_POST["joincode"]."';
+	UPDATE korisnici SET groupid = '".$row["id"]."' WHERE username= '".$_COOKIE["type"]."'
+	";
 	$statement = $connect->prepare($query);
 	$statement->execute();
     }
     elseif ($empty == $row["member3"])
     {
 	http_response_code(200);
-	$query = "UPDATE grupe SET member3 = '".$_COOKIE["type"]."' WHERE id= '".$_POST["joincode"]."'";
+	$query = "
+	UPDATE grupe SET member3 = '".$_COOKIE["type"]."' WHERE id= '".$_POST["joincode"]."';
+	UPDATE korisnici SET groupid = '".$row["id"]."' WHERE username= '".$_COOKIE["type"]."'
+	";
 	$statement = $connect->prepare($query);
 	$statement->execute();
     }
     elseif ($empty == $row["member4"])
     {
 	http_response_code(200);
-	$query = "UPDATE grupe SET member4 = '".$_COOKIE["type"]."' WHERE id= '".$_POST["joincode"]."'";
+	$query = "
+	UPDATE grupe SET member4 = '".$_COOKIE["type"]."' WHERE id= '".$_POST["joincode"]."';
+	UPDATE korisnici SET groupid = '".$row["id"]."' WHERE username= '".$_COOKIE["type"]."'
+	";
 	$statement = $connect->prepare($query);
 	$statement->execute();
     }
 	else{
 	http_response_code(401);
 	echo "grupa je puna";
+	}
+	}
+	else{
+		echo "vec ste clan ove grupe";
 	}
   }
   }

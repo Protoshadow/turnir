@@ -26,6 +26,18 @@ while ($row = mysqli_fetch_assoc($result))
 print(json_encode($json_array[0]));
 mysqli_close($db);
 }
+elseif ( isset( $_GET['user_showall']) ) 
+{
+$id = $_GET['user_showall'];
+$result = mysqli_query($db, "SELECT username, email, rank, id, groupid, fname, lname FROM korisnici");
+$json_array = array();
+while ($row = mysqli_fetch_assoc($result))
+{
+	$json_array[] = $row;
+}
+print(json_encode($json_array));
+mysqli_close($db);
+}
 
 elseif(isset($_COOKIE["type"]))
 {

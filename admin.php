@@ -13,6 +13,7 @@ if(isset($_POST["delgroup"]))
 	$count = $statement->rowCount();
   if($count > 0)
   {
+	 http_response_code(200);
 	$query = "DELETE FROM `grupe` WHERE id ='".$_POST["groupid"]."';
 	UPDATE korisnici SET rank = 'user' WHERE groupid= '".$_POST["groupid"]."' AND rank= 'manager';
 	UPDATE korisnici SET groupid = '0' WHERE groupid= '".$_POST["groupid"]."';
@@ -21,15 +22,59 @@ if(isset($_POST["delgroup"]))
 	$statement->execute();
   }
   else{
+	  http_response_code(404);
 	  echo "ne postoji grupa sa tim IDjem";
   }
 }
 if(isset($_POST["deluser"]))
 {
-//meh
+	$query = "SELECT * FROM korisnici WHERE id= '".$_POST["userid"]."'";
+	$statement = $connect->prepare($query);
+	$statement->execute();
+	$count = $statement->rowCount();
+  if($count > 0)
+  {   
+	$result = $statement->fetchAll();
+	$crank = "manager";
+	$ugroup = "0";
+	if($crank == $result[0]["rank"])
+	{
+	http_response_code(200);
+	$query = "DELETE FROM `grupe` WHERE id ='".$result[0]["groupid"]."';
+	DELETE FROM `korisnici` WHERE id ='".$_POST["userid"]."';
+	UPDATE korisnici SET groupid = '0' WHERE groupid= '".$result[0]["groupid"]."';
+	";
+	$statement = $connect->prepare($query);
+	$statement->execute();
+	}
+	elseif($ugroup !== $result[0]["groupid"])
+	{
+	http_response_code(200);
+	$query = "UPDATE grupe SET member1 = '' WHERE member1= '".$result[0]["username"]."';
+	UPDATE grupe SET member2 = '' WHERE member2= '".$result[0]["username"]."';
+	UPDATE grupe SET member3 = '' WHERE member3= '".$result[0]["username"]."';
+	UPDATE grupe SET member4 = '' WHERE member4= '".$result[0]["username"]."';
+	DELETE FROM `korisnici` WHERE id ='".$_POST["userid"]."';
+	";
+	$statement = $connect->prepare($query);
+	$statement->execute();
+	}
+	else{
+	http_response_code(200);
+	$query = "DELETE FROM `korisnici` WHERE id ='".$_POST["userid"]."';
+	";
+	$statement = $connect->prepare($query);
+	$statement->execute();
+	}
+   }
+   	else{
+		http_response_code(404);
+		echo "user sa tim IDjem ne postoji";
+	}
 }
 if(isset($_POST["meketurnir"]))
 {
+	http_response_code(200);
 	$query = "
 	INSERT INTO turnir(name,r1g1,r1g2,r1g3,r1g4,r1g5,r1g6,r1g7,r1g8) VALUES('".$_POST["turnirname"]."','".$_POST["mr1g1"]."','".$_POST["mr1g2"]."','".$_POST["mr1g3"]."','".$_POST["mr1g4"]."',
 	'".$_POST["mr1g5"]."','".$_POST["mr1g6"]."','".$_POST["mr1g7"]."','".$_POST["mr1g8"]."');
@@ -45,6 +90,7 @@ if(isset($_POST["editturnir"]))
 	$count = $statement->rowCount();
   if($count > 0)
   {
+	 http_response_code(200);
 	$query = "
 	UPDATE turnir SET r1g1='".$_POST["r1g1"]."',r1g2='".$_POST["r1g2"]."',r1g3='".$_POST["r1g3"]."',r1g4='".$_POST["r1g4"]."',r1g5='".$_POST["r1g5"]."',
 	r1g6='".$_POST["r1g6"]."',r1g7='".$_POST["r1g7"]."',r1g8='".$_POST["r1g8"]."',r2g1='".$_POST["r2g1"]."',r2g2='".$_POST["r2g2"]."',r2g3='".$_POST["r2g3"]."',
@@ -54,6 +100,7 @@ if(isset($_POST["editturnir"]))
 	$statement->execute();
   }
   else{
+	  http_response_code(404);
 	  echo "ne pstoji turnir sa tim IDjem";
   }
 }
@@ -65,6 +112,7 @@ if(isset($_POST["turnirstatus"]))
 	$count = $statement->rowCount();
   if($count > 0)
   {
+	 http_response_code(200);
 	$query = "
 	UPDATE turnir SET status='".$_POST["status"]."' WHERE id='".$_POST["statusid"]."';
 	";
@@ -72,6 +120,7 @@ if(isset($_POST["turnirstatus"]))
 	$statement->execute();
   }
   else{
+	  http_response_code(404);
 	  echo "ne pstoji turnir sa tim IDjem";
   }
 }

@@ -7,11 +7,19 @@ if(isset($_COOKIE["type"]))
 {
 $result = mysqli_query($db, "SELECT rank FROM korisnici WHERE username = '".$_COOKIE["type"]."'");
 $json_array = array();
-while ($row = mysqli_fetch_assoc($result))
-{
-	$json_array[] = $row;
-}
-print(json_encode($json_array[0]));
+$row_cnt = $result->num_rows;
+if($row_cnt > 0)
+	{
+	while ($row = mysqli_fetch_assoc($result))
+		{
+		$json_array[] = $row;
+		}
+	print(json_encode($json_array[0]));
+	}
+else
+	{
+	http_response_code(401);
+	}
 }
 else{
 	http_response_code(401);

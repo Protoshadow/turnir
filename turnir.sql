@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 02, 2020 at 06:52 PM
+-- Generation Time: May 10, 2020 at 02:02 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -36,17 +36,16 @@ CREATE TABLE IF NOT EXISTS `grupe` (
   `member2` varchar(25) DEFAULT '',
   `member3` varchar(25) DEFAULT '',
   `member4` varchar(25) DEFAULT '',
-  `id` int(2) NOT NULL AUTO_INCREMENT,
+  `id` int(3) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `grupe`
 --
 
 INSERT INTO `grupe` (`menager`, `groupname`, `member1`, `member2`, `member3`, `member4`, `id`) VALUES
-('proto', '', '', 'lepoje', 'miloje', 'slavoje', 8),
-('protoshadow', 'hhhh', '', '', '', '', 13);
+('proto', '', '', 'sdf', '', 'asdf', 8);
 
 -- --------------------------------------------------------
 
@@ -72,9 +71,8 @@ CREATE TABLE IF NOT EXISTS `korisnici` (
 --
 
 INSERT INTO `korisnici` (`username`, `password`, `email`, `fname`, `lname`, `rank`, `id`, `groupid`) VALUES
-('proto', '$2y$10$cHpf3TzonURXDENRiRF0de1ycSfnM4NJ27sdwyUCf5L.sewDlkCBe', 'john_smith@gmail.com', 'John', 'Smith', '3', 1, 37),
-('protoshadow', '923352284767451ab158a387a283df26', 'boris.shared@gmail.com', 'Boris', 'Rodic', 'manager', 10, NULL),
-('pal', '46d85374284e4224cbad52d4d7882e08', 'pal@pal.com', 'pal', 'pal', '3', 11, NULL);
+('proto', '$2y$10$cHpf3TzonURXDENRiRF0de1ycSfnM4NJ27sdwyUCf5L.sewDlkCBe', 'john_smith@gmail.com', 'John', 'Smith', '3', 1, 0),
+('protoshadow', '923352284767451ab158a387a283df26', 'boris.shared@gmail.com', 'Boris', 'Rodic', 'user', 10, 8);
 
 -- --------------------------------------------------------
 
@@ -84,22 +82,36 @@ INSERT INTO `korisnici` (`username`, `password`, `email`, `fname`, `lname`, `ran
 
 DROP TABLE IF EXISTS `turnir`;
 CREATE TABLE IF NOT EXISTS `turnir` (
-  `r1g1` varchar(40) NOT NULL,
-  `r1g2` varchar(40) NOT NULL,
-  `r1g3` varchar(40) NOT NULL,
-  `r1g4` varchar(40) NOT NULL,
-  `r1g5` varchar(40) NOT NULL,
-  `r1g6` varchar(40) NOT NULL,
-  `r1g7` varchar(40) NOT NULL,
-  `r1g8` varchar(40) NOT NULL,
-  `r2g1` varchar(40) NOT NULL,
-  `r2g2` varchar(40) NOT NULL,
-  `r2g3` varchar(40) NOT NULL,
-  `r2g4` varchar(40) NOT NULL,
-  `r5g1` varchar(40) NOT NULL,
-  `r5g2` varchar(40) NOT NULL,
-  `winner` varchar(40) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `name` varchar(30) NOT NULL,
+  `r1g1` varchar(40) NOT NULL DEFAULT '',
+  `r1g2` varchar(40) NOT NULL DEFAULT '',
+  `r1g3` varchar(40) NOT NULL DEFAULT '',
+  `r1g4` varchar(40) NOT NULL DEFAULT '',
+  `r1g5` varchar(40) NOT NULL DEFAULT '',
+  `r1g6` varchar(40) NOT NULL DEFAULT '',
+  `r1g7` varchar(40) NOT NULL DEFAULT '',
+  `r1g8` varchar(40) NOT NULL DEFAULT '',
+  `r2g1` varchar(40) NOT NULL DEFAULT '',
+  `r2g2` varchar(40) NOT NULL DEFAULT '',
+  `r2g3` varchar(40) NOT NULL DEFAULT '',
+  `r2g4` varchar(40) NOT NULL DEFAULT '',
+  `r3g1` varchar(40) NOT NULL DEFAULT '',
+  `r3g2` varchar(40) NOT NULL DEFAULT '',
+  `winner` varchar(40) NOT NULL DEFAULT '',
+  `status` varchar(10) NOT NULL DEFAULT 'running',
+  `id` int(4) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `turnir`
+--
+
+INSERT INTO `turnir` (`name`, `r1g1`, `r1g2`, `r1g3`, `r1g4`, `r1g5`, `r1g6`, `r1g7`, `r1g8`, `r2g1`, `r2g2`, `r2g3`, `r2g4`, `r3g1`, `r3g2`, `winner`, `status`, `id`) VALUES
+('', 'fafaf', 'eee32', 'fasa', '', '', '', '', '', '', '', '', '', '', '', '', 'running', 1),
+('test', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'running', 3),
+('aa', '', 'asd', '', '', '', '', '', '', '', '', '', '', '', '', '', 'running', 4),
+('test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', '', '', '', '', '', '', '', 'running', 5);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

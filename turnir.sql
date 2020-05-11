@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 10, 2020 at 02:31 PM
+-- Generation Time: May 11, 2020 at 04:34 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `korisnici` (
 --
 
 INSERT INTO `korisnici` (`username`, `password`, `email`, `fname`, `lname`, `rank`, `id`, `groupid`) VALUES
-('proto', '$2y$10$cHpf3TzonURXDENRiRF0de1ycSfnM4NJ27sdwyUCf5L.sewDlkCBe', 'john_smith@gmail.com', 'John', 'Smith', '3', 1, 0),
+('proto', '$2y$10$cHpf3TzonURXDENRiRF0de1ycSfnM4NJ27sdwyUCf5L.sewDlkCBe', 'john_smith@gmail.com', 'John', 'Smith', 'user', 1, 0),
 ('protoshadow', '923352284767451ab158a387a283df26', 'boris.shared@gmail.com', 'Boris', 'Rodic', 'user', 10, 8),
 ('neko', '923352284767451ab158a387a283df26', 'neko@negde.com', 'Neko', 'Nekic', 'user', 12, NULL),
 ('neko2', '923352284767451ab158a387a283df26', 'neko2@negde.com', 'Neko2', 'Nekic2', 'user', 13, NULL),

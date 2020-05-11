@@ -24,7 +24,7 @@ else{
 elseif ( isset( $_GET['turnir_showall']) ) 
 {
 $id = $_GET['turnir_showall'];
-$result = mysqli_query($db, "SELECT username, email, rank, id, groupid, fname, lname FROM korisnici");
+$result = mysqli_query($db, "SELECT * FROM turnir");
 $json_array = array();
 while ($row = mysqli_fetch_assoc($result))
 {

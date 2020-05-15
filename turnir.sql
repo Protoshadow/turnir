@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 15, 2020 at 04:43 PM
+-- Generation Time: May 15, 2020 at 04:44 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -71,7 +71,7 @@ INSERT INTO `korisnici` (`username`, `password`, `email`, `fname`, `lname`, `ran
 ('Sieglinde', '923352284767451ab158a387a283df26', 'sieglinde@sieglinde.com', 'Sieglinde', 'Catarina', 'user', 34, 47),
 ('Siegmeyer', '923352284767451ab158a387a283df26', 'siegmeyer@siegmeyer.com', 'Siegmeyer', 'Catarina', 'manager', 35, 47),
 ('Siegward', '923352284767451ab158a387a283df26', 'siegward@siegward.com', 'Siegward', 'Catarina', 'user', 36, 47),
-('Admin', 'sifra', 'admin@admin.com', 'Admin', 'Admin', 'admin', 37, NULL);
+('Admin', '923352284767451ab158a387a283df26', 'admin@admin.com', 'Admin', 'Admin', 'admin', 37, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 11, 2020 at 04:34 PM
+-- Generation Time: May 15, 2020 at 04:39 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -38,14 +38,21 @@ CREATE TABLE IF NOT EXISTS `grupe` (
   `member4` varchar(25) DEFAULT '',
   `id` int(3) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `grupe`
 --
 
 INSERT INTO `grupe` (`menager`, `groupname`, `member1`, `member2`, `member3`, `member4`, `id`) VALUES
-('proto', 'imegrupe', '', 'sdf', '', 'asdf', 8);
+('biscuitedi', 'EU4', 'settra', 'disdat', '', '', 43),
+('Xpd', 'Singed', 'chaxx', 'brka', '', '', 40),
+('Lazik', 'Pogaca', 'vasili', 'shosh', '', '', 41),
+('protoshadow', 'Warhammer', 'malekith', 'alith', '', '', 42),
+('solla', 'Cimeri', 'sopiix', 'neko3', '', '', 44),
+('marik', 'Kladiona', 'neko', 'neko2', '', '', 45),
+('Solaire', 'Astora', 'Anastacia', 'Andre', '', '', 46),
+('Siegmeyer', 'Catarina', 'Sieglinde', 'Siegward', '', '', 47);
 
 -- --------------------------------------------------------
 
@@ -64,18 +71,38 @@ CREATE TABLE IF NOT EXISTS `korisnici` (
   `id` int(4) NOT NULL AUTO_INCREMENT,
   `groupid` int(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `korisnici`
 --
 
 INSERT INTO `korisnici` (`username`, `password`, `email`, `fname`, `lname`, `rank`, `id`, `groupid`) VALUES
-('proto', '$2y$10$cHpf3TzonURXDENRiRF0de1ycSfnM4NJ27sdwyUCf5L.sewDlkCBe', 'john_smith@gmail.com', 'John', 'Smith', 'user', 1, 0),
-('protoshadow', '923352284767451ab158a387a283df26', 'boris.shared@gmail.com', 'Boris', 'Rodic', 'user', 10, 8),
-('neko', '923352284767451ab158a387a283df26', 'neko@negde.com', 'Neko', 'Nekic', 'user', 12, NULL),
-('neko2', '923352284767451ab158a387a283df26', 'neko2@negde.com', 'Neko2', 'Nekic2', 'user', 13, NULL),
-('neko3', '923352284767451ab158a387a283df26', 'neko3@negde.com', 'Neko3', 'Nekic3', 'admin', 14, NULL);
+('proto', '923352284767451ab158a387a283df26', 'john_smith@gmail.com', 'John', 'Smith', 'user', 1, 0),
+('protoshadow', '923352284767451ab158a387a283df26', 'boris.shared@gmail.com', 'Boris', 'Rodic', 'manager', 10, 42),
+('neko', '923352284767451ab158a387a283df26', 'neko@negde.com', 'Neko', 'Nekic', 'user', 12, 45),
+('neko2', '923352284767451ab158a387a283df26', 'neko2@negde.com', 'Neko2', 'Nekic2', 'user', 13, 45),
+('neko3', '923352284767451ab158a387a283df26', 'neko3@negde.com', 'Neko3', 'Nekic3', 'admin', 14, 44),
+('Xpd', '923352284767451ab158a387a283df26', 'xpd@xpd.com', 'Pal', 'Pap', 'manager', 15, 40),
+('Lazik', '923352284767451ab158a387a283df26', 'lazik@lazik.com', 'Lazic', 'Lazik', 'manager', 16, 41),
+('vasili', '923352284767451ab158a387a283df26', 'vasili@vasili.com', 'Vaja', 'Vajaz', 'user', 17, 41),
+('biscuitedi', '923352284767451ab158a387a283df26', 'biscuitedi@biscuitedi.com', 'Edi', 'Arturito', 'manager', 18, 43),
+('brka', '923352284767451ab158a387a283df26', 'brka@brka.com', 'Brka', 'Brkic', 'user', 19, 40),
+('solla', '923352284767451ab158a387a283df26', 'solla@solla.com', 'Solla', 'Uros', 'manager', 20, 44),
+('sopiix', '923352284767451ab158a387a283df26', 'sopiix@sopiix.com', 'Sopiix', 'PoE', 'user', 21, 44),
+('chaxx', '923352284767451ab158a387a283df26', 'chaxx@chaxx.com', 'Yes', 'Just', 'user', 22, 40),
+('marik', '923352284767451ab158a387a283df26', 'marik@marik.com', 'Marik', 'Tama', 'manager', 23, 45),
+('shosh', '923352284767451ab158a387a283df26', 'shosh@shosh.com', 'Milos', 'Shosh', 'user', 24, 41),
+('disdat', '923352284767451ab158a387a283df26', 'disdat@disdat.com', 'Disdat', 'Rat', 'user', 25, 43),
+('alith', '923352284767451ab158a387a283df26', 'alith@alith.com', 'Alith', 'Anar', 'user', 26, 42),
+('malekith', '923352284767451ab158a387a283df26', 'malekith@malekith.com', 'Malekith', 'SlaveryOP', 'user', 27, 42),
+('settra', '923352284767451ab158a387a283df26', 'settra@settra.com', 'Settra', 'Imperishable', 'user', 28, 43),
+('Solaire', '923352284767451ab158a387a283df26', 'solaire@solaire.com', 'Solaire', 'Astora', 'manager', 31, 46),
+('Anastacia', '923352284767451ab158a387a283df26', 'anastacia@anastacia.com', 'Anastacia', 'Astora', 'user', 32, 46),
+('Andre', '923352284767451ab158a387a283df26', 'andre@andre.com', 'Andre', 'Astora', 'user', 33, 46),
+('Sieglinde', '923352284767451ab158a387a283df26', 'sieglinde@sieglinde.com', 'Sieglinde', 'Catarina', 'user', 34, 47),
+('Siegmeyer', '923352284767451ab158a387a283df26', 'siegmeyer@siegmeyer.com', 'Siegmeyer', 'Catarina', 'manager', 35, 47),
+('Siegward', '923352284767451ab158a387a283df26', 'siegward@siegward.com', 'Siegward', 'Catarina', 'user', 36, 47);
 
 -- --------------------------------------------------------
 

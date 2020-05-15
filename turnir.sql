@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 15, 2020 at 04:39 PM
+-- Generation Time: May 15, 2020 at 04:42 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `korisnici` (
   `id` int(4) NOT NULL AUTO_INCREMENT,
   `groupid` int(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `korisnici`
@@ -82,7 +82,7 @@ INSERT INTO `korisnici` (`username`, `password`, `email`, `fname`, `lname`, `ran
 ('protoshadow', '923352284767451ab158a387a283df26', 'boris.shared@gmail.com', 'Boris', 'Rodic', 'manager', 10, 42),
 ('neko', '923352284767451ab158a387a283df26', 'neko@negde.com', 'Neko', 'Nekic', 'user', 12, 45),
 ('neko2', '923352284767451ab158a387a283df26', 'neko2@negde.com', 'Neko2', 'Nekic2', 'user', 13, 45),
-('neko3', '923352284767451ab158a387a283df26', 'neko3@negde.com', 'Neko3', 'Nekic3', 'admin', 14, 44),
+('neko3', '923352284767451ab158a387a283df26', 'neko3@negde.com', 'Neko3', 'Nekic3', 'user', 14, 44),
 ('Xpd', '923352284767451ab158a387a283df26', 'xpd@xpd.com', 'Pal', 'Pap', 'manager', 15, 40),
 ('Lazik', '923352284767451ab158a387a283df26', 'lazik@lazik.com', 'Lazic', 'Lazik', 'manager', 16, 41),
 ('vasili', '923352284767451ab158a387a283df26', 'vasili@vasili.com', 'Vaja', 'Vajaz', 'user', 17, 41),
@@ -102,7 +102,8 @@ INSERT INTO `korisnici` (`username`, `password`, `email`, `fname`, `lname`, `ran
 ('Andre', '923352284767451ab158a387a283df26', 'andre@andre.com', 'Andre', 'Astora', 'user', 33, 46),
 ('Sieglinde', '923352284767451ab158a387a283df26', 'sieglinde@sieglinde.com', 'Sieglinde', 'Catarina', 'user', 34, 47),
 ('Siegmeyer', '923352284767451ab158a387a283df26', 'siegmeyer@siegmeyer.com', 'Siegmeyer', 'Catarina', 'manager', 35, 47),
-('Siegward', '923352284767451ab158a387a283df26', 'siegward@siegward.com', 'Siegward', 'Catarina', 'user', 36, 47);
+('Siegward', '923352284767451ab158a387a283df26', 'siegward@siegward.com', 'Siegward', 'Catarina', 'admin', 36, 47),
+('Admin', 'sifra', 'admin@admin.com', 'Admin', 'Admin', 'user', 37, NULL);
 
 -- --------------------------------------------------------
 

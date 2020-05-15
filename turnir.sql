@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 15, 2020 at 04:42 PM
+-- Generation Time: May 15, 2020 at 04:43 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -21,38 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `turnir`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `grupe`
---
-
-DROP TABLE IF EXISTS `grupe`;
-CREATE TABLE IF NOT EXISTS `grupe` (
-  `menager` varchar(25) NOT NULL,
-  `groupname` varchar(40) NOT NULL,
-  `member1` varchar(25) DEFAULT '',
-  `member2` varchar(25) DEFAULT '',
-  `member3` varchar(25) DEFAULT '',
-  `member4` varchar(25) DEFAULT '',
-  `id` int(3) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `grupe`
---
-
-INSERT INTO `grupe` (`menager`, `groupname`, `member1`, `member2`, `member3`, `member4`, `id`) VALUES
-('biscuitedi', 'EU4', 'settra', 'disdat', '', '', 43),
-('Xpd', 'Singed', 'chaxx', 'brka', '', '', 40),
-('Lazik', 'Pogaca', 'vasili', 'shosh', '', '', 41),
-('protoshadow', 'Warhammer', 'malekith', 'alith', '', '', 42),
-('solla', 'Cimeri', 'sopiix', 'neko3', '', '', 44),
-('marik', 'Kladiona', 'neko', 'neko2', '', '', 45),
-('Solaire', 'Astora', 'Anastacia', 'Andre', '', '', 46),
-('Siegmeyer', 'Catarina', 'Sieglinde', 'Siegward', '', '', 47);
 
 -- --------------------------------------------------------
 
@@ -102,47 +70,8 @@ INSERT INTO `korisnici` (`username`, `password`, `email`, `fname`, `lname`, `ran
 ('Andre', '923352284767451ab158a387a283df26', 'andre@andre.com', 'Andre', 'Astora', 'user', 33, 46),
 ('Sieglinde', '923352284767451ab158a387a283df26', 'sieglinde@sieglinde.com', 'Sieglinde', 'Catarina', 'user', 34, 47),
 ('Siegmeyer', '923352284767451ab158a387a283df26', 'siegmeyer@siegmeyer.com', 'Siegmeyer', 'Catarina', 'manager', 35, 47),
-('Siegward', '923352284767451ab158a387a283df26', 'siegward@siegward.com', 'Siegward', 'Catarina', 'admin', 36, 47),
-('Admin', 'sifra', 'admin@admin.com', 'Admin', 'Admin', 'user', 37, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `turnir`
---
-
-DROP TABLE IF EXISTS `turnir`;
-CREATE TABLE IF NOT EXISTS `turnir` (
-  `name` varchar(30) NOT NULL,
-  `r1g1` varchar(40) NOT NULL DEFAULT '',
-  `r1g2` varchar(40) NOT NULL DEFAULT '',
-  `r1g3` varchar(40) NOT NULL DEFAULT '',
-  `r1g4` varchar(40) NOT NULL DEFAULT '',
-  `r1g5` varchar(40) NOT NULL DEFAULT '',
-  `r1g6` varchar(40) NOT NULL DEFAULT '',
-  `r1g7` varchar(40) NOT NULL DEFAULT '',
-  `r1g8` varchar(40) NOT NULL DEFAULT '',
-  `r2g1` varchar(40) NOT NULL DEFAULT '',
-  `r2g2` varchar(40) NOT NULL DEFAULT '',
-  `r2g3` varchar(40) NOT NULL DEFAULT '',
-  `r2g4` varchar(40) NOT NULL DEFAULT '',
-  `r3g1` varchar(40) NOT NULL DEFAULT '',
-  `r3g2` varchar(40) NOT NULL DEFAULT '',
-  `winner` varchar(40) NOT NULL DEFAULT '',
-  `status` varchar(10) NOT NULL DEFAULT 'running',
-  `id` int(4) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `turnir`
---
-
-INSERT INTO `turnir` (`name`, `r1g1`, `r1g2`, `r1g3`, `r1g4`, `r1g5`, `r1g6`, `r1g7`, `r1g8`, `r2g1`, `r2g2`, `r2g3`, `r2g4`, `r3g1`, `r3g2`, `winner`, `status`, `id`) VALUES
-('', 'fafaf', 'eee32', 'fasa', '', '', '', '', '', '', '', '', '', '', '', '', 'running', 1),
-('test', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'running', 3),
-('aa', '', 'asd', '', '', '', '', '', '', '', '', '', '', '', '', '', 'running', 4),
-('test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', '', '', '', '', '', '', '', 'running', 5);
+('Siegward', '923352284767451ab158a387a283df26', 'siegward@siegward.com', 'Siegward', 'Catarina', 'user', 36, 47),
+('Admin', 'sifra', 'admin@admin.com', 'Admin', 'Admin', 'admin', 37, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

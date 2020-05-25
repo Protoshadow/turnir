@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `turnir` (
   `r3g1` varchar(40) NOT NULL DEFAULT '',
   `r3g2` varchar(40) NOT NULL DEFAULT '',
   `winner` varchar(40) NOT NULL DEFAULT '',
-  `status` varchar(10) NOT NULL DEFAULT 'running',
+  `status` varchar(10) NOT NULL DEFAULT 'r1',
   `id` int(4) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;

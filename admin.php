@@ -104,6 +104,67 @@ if(isset($_POST["editturnir"]))
 	  echo "ne pstoji turnir sa tim IDjem";
   }
 }
+if(isset($_POST["setround2"]))
+{
+	$query = "SELECT * FROM turnir WHERE id= '".$_POST["turnirid"]."'";
+	$statement = $connect->prepare($query);
+	$statement->execute();
+	$count = $statement->rowCount();
+  if($count > 0)
+  {
+	 http_response_code(200);
+	$query = "
+	UPDATE turnir SET r2g1='".$_POST["r2g1"]."',r2g2='".$_POST["r2g2"]."',r2g3='".$_POST["r2g3"]."',
+	r2g4='".$_POST["r2g4"]."',status='r2' WHERE id='".$_POST["turnirid"]."';
+	";
+	$statement = $connect->prepare($query);
+	$statement->execute();
+  }
+  else{
+	  http_response_code(404);
+	  echo "ne pstoji turnir sa tim IDjem";
+  }
+}
+if(isset($_POST["setround3"]))
+{
+	$query = "SELECT * FROM turnir WHERE id= '".$_POST["turnirid"]."'";
+	$statement = $connect->prepare($query);
+	$statement->execute();
+	$count = $statement->rowCount();
+  if($count > 0)
+  {
+	 http_response_code(200);
+	$query = "
+	UPDATE turnir SET r3g1='".$_POST["r3g1"]."',r3g2='".$_POST["r3g2"]."',status='r3' WHERE id='".$_POST["turnirid"]."';
+	";
+	$statement = $connect->prepare($query);
+	$statement->execute();
+  }
+  else{
+	  http_response_code(404);
+	  echo "ne pstoji turnir sa tim IDjem";
+  }
+}
+if(isset($_POST["setwinner"]))
+{
+	$query = "SELECT * FROM turnir WHERE id= '".$_POST["turnirid"]."'";
+	$statement = $connect->prepare($query);
+	$statement->execute();
+	$count = $statement->rowCount();
+  if($count > 0)
+  {
+	 http_response_code(200);
+	$query = "
+	UPDATE turnir SET winner='".$_POST["winner"]."',status='end' WHERE id='".$_POST["turnirid"]."';
+	";
+	$statement = $connect->prepare($query);
+	$statement->execute();
+  }
+  else{
+	  http_response_code(404);
+	  echo "ne pstoji turnir sa tim IDjem";
+  }
+}
 if(isset($_POST["turnirstatus"]))
 {
 	$query = "SELECT * FROM turnir WHERE id= '".$_POST["statusid"]."'";

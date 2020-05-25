@@ -50,7 +50,7 @@ INSERT INTO `grupe` (`menager`, `groupname`, `member1`, `member2`, `member3`, `m
 ('Lazik', 'Pogaca', 'vasili', 'shosh', '', '', 41),
 ('protoshadow', 'Warhammer', 'malekith', 'alith', '', '', 42),
 ('solla', 'Cimeri', 'sopiix', '', '', '', 44),
-('neko2', 'Kladiona', 'neko', '', '', '', 45),
+('neko2', 'Kladiona', 'neko', 'vasili', '', '', 45),
 ('Solaire', 'Astora', 'Anastacia', 'Andre', '', '', 46),
 ('Siegmeyer', 'Catarina', 'Sieglinde', 'Siegward', '', '', 47);
 
@@ -85,7 +85,7 @@ INSERT INTO `korisnici` (`username`, `password`, `email`, `fname`, `lname`, `ran
 ('neko3', '923352284767451ab158a387a283df26', 'neko3@negde.com', 'Neko3', 'Nekic3', 'admin', 14, 0),
 ('Xpd', '923352284767451ab158a387a283df26', 'xpd@xpd.com', 'Pal', 'Pap', 'manager', 15, 40),
 ('Lazik', '923352284767451ab158a387a283df26', 'lazik@lazik.com', 'Lazic', 'Lazik', 'manager', 16, 41),
-('vasili', '923352284767451ab158a387a283df26', 'vasili@vasili.com', 'Vaja', 'Vajaz', 'user', 17, 41),
+('vasili', '923352284767451ab158a387a283df26', 'vasili@vasili.com', 'Vaja', 'Vajaz', 'user', 17, 45),
 ('biscuitedi', '923352284767451ab158a387a283df26', 'biscuitedi@biscuitedi.com', 'Edi', 'Arturito', 'manager', 18, 43),
 ('brka', '923352284767451ab158a387a283df26', 'brka@brka.com', 'Brka', 'Brkic', 'user', 19, 40),
 ('solla', '923352284767451ab158a387a283df26', 'solla@solla.com', 'Solla', 'Uros', 'manager', 20, 44),

@@ -49,8 +49,8 @@ INSERT INTO `grupe` (`menager`, `groupname`, `member1`, `member2`, `member3`, `m
 ('Xpd', 'Singed', 'chaxx', 'brka', '', '', 40),
 ('Lazik', 'Pogaca', 'vasili', 'shosh', '', '', 41),
 ('protoshadow', 'Warhammer', 'malekith', 'alith', '', '', 42),
-('solla', 'Cimeri', 'sopiix', 'neko3', '', '', 44),
-('marik', 'Kladiona', 'neko', 'neko2', '', '', 45),
+('solla', 'Cimeri', 'sopiix', '', '', '', 44),
+('neko2', 'Kladiona', 'neko', '', '', '', 45),
 ('Solaire', 'Astora', 'Anastacia', 'Andre', '', '', 46),
 ('Siegmeyer', 'Catarina', 'Sieglinde', 'Siegward', '', '', 47);
 
@@ -81,8 +81,8 @@ INSERT INTO `korisnici` (`username`, `password`, `email`, `fname`, `lname`, `ran
 ('proto', '923352284767451ab158a387a283df26', 'john_smith@gmail.com', 'John', 'Smith', 'user', 1, 0),
 ('protoshadow', '923352284767451ab158a387a283df26', 'boris.shared@gmail.com', 'Boris', 'Rodic', 'manager', 10, 42),
 ('neko', '923352284767451ab158a387a283df26', 'neko@negde.com', 'Neko', 'Nekic', 'user', 12, 45),
-('neko2', '923352284767451ab158a387a283df26', 'neko2@negde.com', 'Neko2', 'Nekic2', 'user', 13, 45),
-('neko3', '923352284767451ab158a387a283df26', 'neko3@negde.com', 'Neko3', 'Nekic3', 'user', 14, 44),
+('neko2', '923352284767451ab158a387a283df26', 'neko2@negde.com', 'Neko2', 'Nekic2', 'manager', 13, 45),
+('neko3', '923352284767451ab158a387a283df26', 'neko3@negde.com', 'Neko3', 'Nekic3', 'admin', 14, 0),
 ('Xpd', '923352284767451ab158a387a283df26', 'xpd@xpd.com', 'Pal', 'Pap', 'manager', 15, 40),
 ('Lazik', '923352284767451ab158a387a283df26', 'lazik@lazik.com', 'Lazic', 'Lazik', 'manager', 16, 41),
 ('vasili', '923352284767451ab158a387a283df26', 'vasili@vasili.com', 'Vaja', 'Vajaz', 'user', 17, 41),
@@ -139,10 +139,7 @@ CREATE TABLE IF NOT EXISTS `turnir` (
 --
 
 INSERT INTO `turnir` (`name`, `r1g1`, `r1g2`, `r1g3`, `r1g4`, `r1g5`, `r1g6`, `r1g7`, `r1g8`, `r2g1`, `r2g2`, `r2g3`, `r2g4`, `r3g1`, `r3g2`, `winner`, `status`, `id`) VALUES
-('', 'fafaf', 'eee32', 'fasa', '', '', '', '', '', '', '', '', '', '', '', '', 'running', 1),
-('test', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'running', 3),
-('aa', '', 'asd', '', '', '', '', '', '', '', '', '', '', '', '', '', 'running', 4),
-('test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', '', '', '', '', '', '', '', 'running', 5);
+('Turnir1', '40', '41', '42', '43', '44', '45', '46', '47', '', '', '', '', '', '', '', 'r1', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
